@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Built-in Django Apps
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
@@ -39,13 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #Local apps
+    # Third-party
+    'crispy_forms',
+
+    # Local apps
     'common.apps.CommonConfig',
     'jobs.apps.JobsConfig',
     'jokes.apps.JokesConfig',
     'pages.apps.AppNameConfig',
     'users.apps.UsersConfig',
-    ]
+]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

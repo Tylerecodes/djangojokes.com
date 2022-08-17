@@ -63,6 +63,9 @@ class Tag(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['tag']
+
     def get_absolute_url(self):
         return reverse('jokes:tag', args=[self.slug])
 
@@ -74,6 +77,3 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.tag
-
-    class Meta:
-        ordering = ['tag']

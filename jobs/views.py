@@ -4,7 +4,7 @@ from django.views.generic import CreateView, TemplateView
 
 from common.utils.email import send_email
 from .models import Applicant
-from .form import JobApplicationForm
+from .forms import JobApplicationForm
 
 
 class JobAppView(CreateView):

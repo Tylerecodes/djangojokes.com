@@ -44,9 +44,25 @@
 <div class="table-responsive">
   <table class="table table-striped" style="min-width: 500px">
     <thead>
-      <tr>
-        <th>Joke</th><th>Category</th><th>Actions</th>
-      </tr>
+      {% with order=request.GET.order dir=request.GET.direction %}
+        <tr>
+          {% if order == 'joke' and dir == 'asc' %}
+            <th><a href="?order=joke&direction=desc">Joke</a></th>
+          {% else %}
+            <th><a href="?order=joke&direction=asc">Joke</a></th>
+          {% endif %}
+          {% if order == 'category' and dir == 'asc' %}
+            <th><a href="?order=category&direction=desc">Category</a></th>
+          {% else %}
+            <th><a href="?order=category&direction=asc">Category</a></th>
+          {% endif %}
+          {% if order == 'creator' and dir == 'asc' %}
+            <th><a href="?order=creator&direction=desc">Creator</a></th>
+          {% else %}
+            <th><a href="?order=creator&direction=asc">Creator</a></th>
+          {% endif %}
+        </tr>
+      {% endwith %}
     </thead>
     <tbody>
       {% for joke in joke_list %}
